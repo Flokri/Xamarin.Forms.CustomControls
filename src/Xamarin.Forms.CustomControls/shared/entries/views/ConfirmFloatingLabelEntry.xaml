@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<customentries:FloatingLabelBase
+    x:Class="Xamarin.Forms.CustomControls.Entries.ConfirmFloatingLabelEntry"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:customentries="clr-namespace:Xamarin.Forms.CustomControls.Entries"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Name="this"
+    mc:Ignorable="d">
+    <ContentView.Content>
+        <Grid HorizontalOptions="FillAndExpand">
+            <Frame
+                x:Name="Frame"
+                Padding="0"
+                BackgroundColor="{Binding ViewBackgroundColor, Source={x:Reference this}}"
+                CornerRadius="{Binding CornerRadius, Source={x:Reference this}}">
+                <Grid HorizontalOptions="FillAndExpand">
+                    <customentries:FloatingLabelEntry
+                        x:Name="floatingLabelEntry"
+                        IsPassword="{Binding IsPassword, Source={x:Reference this}}"
+                        Keyboard="{Binding Keyboard, Source={x:Reference this}}"
+                        Placeholder="{Binding Placeholder, Source={x:Reference this}}"
+                        PlaceholderColor="{Binding PlaceholderColor, Source={x:Reference this}}"
+                        Text="{Binding Text, Source={x:Reference this}}"
+                        TextColor="{Binding TextColor, Source={x:Reference this}}"
+                        TitleColor="{Binding TitleColor, Source={x:Reference this}}"
+                        VerticalOptions="Center">
+                        <customentries:FloatingLabelEntry.Margin>
+                            <OnPlatform x:TypeArguments="Thickness">
+                                <On Platform="Android" Value="5,0" />
+                            </OnPlatform>
+                        </customentries:FloatingLabelEntry.Margin>
+                    </customentries:FloatingLabelEntry>
+                    <Button
+                        x:Name="Confirm"
+                        Margin="0,0,-1,0"
+                        BackgroundColor="{Binding ButtonBackgroundColor, Source={x:Reference this}}"
+                        Clicked="Confirm_Clicked"
+                        CornerRadius="{Binding CornerRadius, Source={x:Reference this}}"
+                        HorizontalOptions="End"
+                        ImageSource=""
+                        Text="{Binding ButtonText, Source={x:Reference this}}"
+                        TextColor="{Binding DefaultTextColor, Source={x:Reference this}}"
+                        VerticalOptions="FillAndExpand"
+                        WidthRequest="0" />
+                </Grid>
+            </Frame>
+        </Grid>
+    </ContentView.Content>
+</customentries:FloatingLabelBase>

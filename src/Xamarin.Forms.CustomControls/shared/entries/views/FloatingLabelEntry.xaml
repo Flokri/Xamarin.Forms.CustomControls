@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<customentries:FloatingLabelBase
+    x:Class="Xamarin.Forms.CustomControls.Entries.FloatingLabelEntry"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:customentries="clr-namespace:Xamarin.Forms.CustomControls.Entries"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Name="this"
+    mc:Ignorable="d">
+    <ContentView.Content>
+        <Grid x:Name="Grid">
+            <Grid.RowSpacing>
+                <OnPlatform x:TypeArguments="x:Double">
+                    <On Platform="iOS" Value="0" />
+                    <On Platform="Android" Value="-7" />
+                </OnPlatform>
+            </Grid.RowSpacing>
+            <Grid.Margin>
+                <OnPlatform x:TypeArguments="Thickness">
+                    <On Platform="iOS" Value="0,10,0,0" />
+                    <On Platform="Android" Value="0" />
+                </OnPlatform>
+            </Grid.Margin>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="1" />
+            </Grid.RowDefinitions>
+            <customentries:BorderlessEntry
+                x:Name="BorderlessEntry"
+                Completed="HandleCompleted"
+                Focused="HandleFocused"
+                IsPassword="{Binding IsPassword, Source={x:Reference this}}"
+                Keyboard="{Binding Keyboard, Source={x:Reference this}}"
+                Text="{Binding Text, Source={x:Reference this}}"
+                TextColor="{Binding TextColor, Source={x:Reference this}}"
+                Unfocused="HandleUnfocused" />
+            <Label
+                x:Name="PlaceholderLabel"
+                Text="{Binding Placeholder, Source={x:Reference this}}"
+                TextColor="{Binding PlaceholderColor, Source={x:Reference this}}"
+                VerticalOptions="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="HandleTapped" />
+                </Label.GestureRecognizers>
+            </Label>
+        </Grid>
+    </ContentView.Content>
+</customentries:FloatingLabelBase>

@@ -7,28 +7,36 @@
     <!--xamarin.mac20;xamarin.tvos10;xamarin.watchos10;monoandroid10.0;tizen40;netcoreapp2.1;netcoreapp3.1;net461-->
 
     <!-- Set project metadata -->
-    <Company>FILL IN</Company>
-    <Copyright>Copyright © FILL IN</Copyright>
-    <RepositoryUrl>FILL IN</RepositoryUrl>
-    <Authors>FILL IN</Authors>
-    <Owners>FILL IN</Owners>
+    <Company>flokri</Company>
+    <Copyright>Copyright © flokri</Copyright>
+    <RepositoryUrl>https://github.com/Flokri/Xamarin.Forms.CustomControls.git</RepositoryUrl>
+    <Authors>Florian Kriegl</Authors>
+    <Owners>Florian Kriegl</Owners>
     <PackageReleaseNotes />
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <Product>Xamarin.Forms.CustomControl (netstandard2.0)</Product>
+    <Product>Xamarin.Forms.CustomControls</Product>
     <NeutralLanguage>en</NeutralLanguage>
 
     <Platform>AnyCPU</Platform>
     <DebugType>portable</DebugType>
-    <PackageId>Xamarin.Forms.CustomControl</PackageId>
-    <AssemblyName>Xamarin.Forms.CustomControl</AssemblyName>
-    <RootNamespace>Xamarin.Forms.CustomControl</RootNamespace>
+    <PackageId>Xamarin.Forms.CustomControls</PackageId>
+    <AssemblyName>Xamarin.Forms.CustomControls</AssemblyName>
+    <RootNamespace>Xamarin.Forms.CustomControls</RootNamespace>
 
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
     <DebugType>portable</DebugType>
 
-    <Version>1.0.0</Version>
+    <Version>0.1.0</Version>
+
+    <Description>Different custom controls for Xamarin.Forms.</Description>
+
+    <PackageProjectUrl>https://github.com/Flokri/Xamarin.Forms.CustomControls</PackageProjectUrl>
+
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+
+    <PackageTags>xamarin-forms, xamarin-forms-controls, xamarin</PackageTags>
   </PropertyGroup>
 
   <!-- If config is debug create debug symbols -->
@@ -46,16 +54,12 @@
   </PropertyGroup>
 
   <!-- Create the item groups for the different platforms -->
-  <ItemGroup>    
+  <ItemGroup>
     <Compile Include="shared\**\*.cs" />
 
-    <Folder Include="ios\" />
-    <Folder Include="android\" />
-    <Folder Include="standard\" />
-    <Folder Include="shared\" />
-    
     <None Include="readme.txt" pack="true" PackagePath="." />
-    
+    <PackageReference Include="SkiaSharp.Views.Forms" Version="1.68.2-preview.29" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.4.0-pre2" />
     <PackageReference Include="Xamarin.Forms" Version="4.4.0.991640" />
   </ItemGroup>
 
@@ -74,6 +78,7 @@
   <ItemGroup Condition=" $(TargetFramework.StartsWith('uwp')) ">
     <Compile Include="uap\**\*.uwp.cs" />
   </ItemGroup>
+
 
   <!-- The item groups for the other framworks-->
   <!--
