@@ -1,2 +1,2 @@
 # Xamarin.Forms.CustomControls
-Custom Controls for Xamarin.Forms.
+Different custom controls for Xamarin.Forms. 
