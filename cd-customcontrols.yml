@@ -59,27 +59,10 @@ stages:
 
     - task: PublishBuildArtifacts@1
       displayName: 'Publish Artifact: drop'
-
-
-- stage: 'PublishPrereleaseNuGetPackage'
-  displayName: 'Publish Prerelease NuGet Package'
-  dependsOn: 'Build'
-  condition: succeeded()
-  jobs:
-  - job:
-    pool:
-      vmImage: 'windows-latest'
-
-    steps:
-    - checkout: none
-
-    - download: current
-      artifact: 'drop'
-
         
-- stage: 'PublishReleaseNuGetPackage'
+- stage: 'PublishNuGetPackage'
   displayName: 'Publish Release NuGet Package'
-  dependsOn: 'PublishPrereleaseNuGetPackage'
+  dependsOn: 'Build'
   condition: succeeded()
   jobs:
   - deployment:
