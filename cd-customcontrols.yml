@@ -26,68 +26,60 @@ stages:
       clean: all
 
     steps:
-    - task: UseDotNet@2
-      displayName: 'Use .NET Core sdk'
+    - task: NuGetToolInstaller@0
+      displayName: 'Use NuGet 4.9.3'
       inputs:
-        packageType: sdk
-        version: 2.2.x
-        installationPath: $(Agent.ToolsDirectory)/dotnet
-    
-    - task: DotNetCoreCLI@2
-      displayName: "NuGet Restore"
-      inputs:
-        command: restore
-        projects: 'src/**/*.csproj'
+        versionSpec: 4.9.3
 
-    - task: DotNetCoreCLI@2
-      displayName: "Build Solution"
+    - task: NuGetCommand@2
+      displayName: 'NuGet restore'
       inputs:
-        command: build
-        projects: 'src/**/*.csproj'
-        arguments: '--configuration $(buildConfiguration)'
+        restoreSolution: 'src\**\*.sln'
 
-    - task: DotNetCoreCLI@2
-      displayName: 'Create NuGet Package - Release Version'
+    - task: MSBuild@1
+      displayName: 'Build beta'
       inputs:
-        command: pack
-        packDirectory: '$(Build.ArtifactStagingDirectory)/packages/releases'
-        arguments: '--configuration $(buildConfiguration)'
-        nobuild: true
-    
-    - task: DotNetCoreCLI@2
-      displayName: 'Create NuGet Package - Prerelease Version'
+        solution: src/Xamarin.Forms.CustomControls/Xamarin.Forms.CustomControls.csproj
+        msbuildArguments: '/t:restore;build;pack /p:PackageVersion=$(Build.BuildNumber)-beta /p:PackageOutputPath=$(build.artifactstagingdirectory)/beta /p:AssemblyFileVersion=$(Build.BuildNumber)  '
+        clean: true
+
+    - task: MSBuild@1
+      displayName: 'Build final'
       inputs:
-        command: pack
-        buildProperties: 'VersionSuffix="$(Build.BuildNumber)"'
-        packDirectory: '$(Build.ArtifactStagingDirectory)/packages/prereleases'
-        arguments: '--configuration $(buildConfiguration)'
+        solution: src/Xamarin.Forms.CustomControls/Xamarin.Forms.CustomControls.csproj
+        msbuildArguments: '/t:restore;build;pack /p:PackageVersion=$(Build.BuildNumber) /p:PackageOutputPath=$(build.artifactstagingdirectory)/final /p:AssemblyFileVersion=$(Build.BuildNumber) '
+        clean: true
+
+    - task: CopyFiles@2
+      displayName: 'Copy Files to: $(build.artifactstagingdirectory)'
+      inputs:
+        SourceFolder: '$(build.sourcesdirectory)'
+        Contents: '**\bin\$(BuildConfiguration)\**\*.nupkg'
+        TargetFolder: '$(build.artifactstagingdirectory)'
+
+    - task: PublishBuildArtifacts@1
+      displayName: 'Publish Artifact: drop'
         
-    - publish: '$(Build.ArtifactStagingDirectory)/packages'
-      artifact: 'packages'
-
-        
-- stage: 'PublishReleaseNuGetPackage'
+- stage: 'PublishNuGetPackage'
   displayName: 'Publish Release NuGet Package'
   dependsOn: 'Build'
   condition: succeeded()
   jobs:
   - deployment:
     pool:
-      vmImage: 'windows-latest'
+      vmImage: 'ubuntu-latest'
     environment: 'nuget-org'
     strategy:
      runOnce:
        deploy:
          steps:
-         - checkout: none
-
          - download: current
-           artifact: 'packages'
-
+           artifact: 'drop'
+           
          - task: NuGetCommand@2
            displayName: 'Push NuGet Package'
            inputs:
              command: 'push'
-             packagesToPush: '$(Pipeline.Workspace)/packages/releases/*.nupkg'
+             packagesToPush: '$(Pipeline.Workspace)/drop/final/*.nupkg'
              nuGetFeedType: 'external'
              publishFeedCredentials: 'NuGet'
