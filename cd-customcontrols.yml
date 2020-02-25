@@ -79,6 +79,6 @@ stages:
            displayName: 'Push NuGet Package'
            inputs:
              command: 'push'
-             packagesToPush: '$(build.artifactstagingdirectory)/*.nupkg'
+             packagesToPush: '$(build.artifactstagingdirectory)/final/*.nupkg'
              nuGetFeedType: 'external'
              publishFeedCredentials: 'NuGet'
