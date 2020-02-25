@@ -1,5 +1,5 @@
-﻿																								Xamarin.Forms.CustomControls
-						------------------------------------------
+Xamarin.Forms.CustomControls
+----------------------------
 
 This NuGet features different custom controls for Xamarin.Forms!
 
