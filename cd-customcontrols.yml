@@ -61,15 +61,39 @@ stages:
       displayName: 'Publish Artifact: drop'
 
 
+- stage: 'PublishPrereleaseNuGetPackage'
+  displayName: 'Publish Prerelease NuGet Package'
+  dependsOn: 'Build'
+  condition: succeeded()
+  jobs:
+  - job:
+    pool:
+      vmImage: 'windows-latest'
+
+    steps:
+    - checkout: none
+
+    - download: current
+      artifact: 'drop'
+
+    - task: NuGetCommand@2
+      displayName: 'Push NuGet Package'
+      inputs:
+        command: 'push'
+        packagesToPush: '$(Pipeline.Workspace)/drop/final/*.nupkg'
+        nuGetFeedType: 'internal'
+        publishVstsFeed: 'Test'
+
+
         
 - stage: 'PublishReleaseNuGetPackage'
   displayName: 'Publish Release NuGet Package'
-  dependsOn: 'Build'
+  dependsOn: 'PublishPrereleaseNuGetPackage'
   condition: succeeded()
   jobs:
   - deployment:
     pool:
-      vmImage: 'windows-latest'
+      vmImage: 'ubuntu-latest'
     environment: 'nuget-org'
     strategy:
      runOnce:
@@ -79,6 +103,6 @@ stages:
            displayName: 'Push NuGet Package'
            inputs:
              command: 'push'
-             packagesToPush: '$(build.artifactstagingdirectory)/final/*.nupkg'
+             packagesToPush: '$(Pipeline.Workspace)/drop/releases/*.nupkg'
              nuGetFeedType: 'external'
              publishFeedCredentials: 'NuGet'
