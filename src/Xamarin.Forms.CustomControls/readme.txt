@@ -1,9 +1,9 @@
 ﻿																								Xamarin.Forms.CustomControls
-																---------------------------------------------------------------------------------------------------
+						------------------------------------------
 
 This NuGet features different custom controls for Xamarin.Forms!
 
-In version 0.0.1 following controls are included:
+In version 0.1.0 following controls are included:
 	Entries:
 		- floating label entry (borderless)
 		- material floating label entry
