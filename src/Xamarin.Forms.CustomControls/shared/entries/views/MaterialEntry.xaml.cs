@@ -9,15 +9,15 @@ using Xamarin.Forms.Xaml;
 
 namespace Xamarin.Forms.CustomControls.Entries
 {
-    public partial class MaterialFloatingLabelEntry : FloatingLabelBase
+    public partial class MaterialEntry : FloatingLabelBase
     {
         #region BindablePropeties
-        public readonly BindableProperty DefaultBorderColorProperty = BindableProperty.Create(nameof(DefaultBorderColor), typeof(Color), typeof(MaterialFloatingLabelEntry), Color.Gray);
-        public readonly BindableProperty ActiveBorderColorProperty = BindableProperty.Create(nameof(ActiveBorderColor), typeof(Color), typeof(MaterialFloatingLabelEntry), Color.Gray);
+        public readonly BindableProperty DefaultBorderColorProperty = BindableProperty.Create(nameof(DefaultBorderColor), typeof(Color), typeof(MaterialEntry), Color.Gray);
+        public readonly BindableProperty ActiveBorderColorProperty = BindableProperty.Create(nameof(ActiveBorderColor), typeof(Color), typeof(MaterialEntry), Color.Gray);
         #endregion
 
         #region constructor
-        public MaterialFloatingLabelEntry()
+        public MaterialEntry()
         {
             InitializeComponent();
 

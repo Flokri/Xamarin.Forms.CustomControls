@@ -5,5 +5,5 @@ namespace Xamarin.Forms.CustomControls.Entries
     /// <summary>
     /// Entry without borders
     /// </summary>
-    class BorderlessEntry : Entry { }
+    public class BorderlessEntry : Entry { }
 }

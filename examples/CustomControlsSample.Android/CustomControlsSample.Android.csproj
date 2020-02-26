@@ -94,6 +94,10 @@
     <Folder Include="Resources\drawable\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\src\Xamarin.Forms.CustomControls\Xamarin.Forms.CustomControls.csproj">
+      <Project>{ae709258-b8c4-4beb-ad4d-a53e4a4f86ee}</Project>
+      <Name>Xamarin.Forms.CustomControls</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CustomControlsSample\CustomControlsSample.csproj">
       <Project>{2A268E43-48C4-495F-A9A3-93486FA482D7}</Project>
       <Name>CustomControlsSample</Name>

@@ -11,6 +11,8 @@ namespace Xamarin.Forms.CustomControls.Entries
         const int TITLE_FONT_SIZE = 13;
         const int PLACEHOLDER_FONT_SIZE = 18;
 
+        private int _labelStartX;
+
         public event EventHandler Completed;
 
         public AsyncEvent<EventArgs> BeforeTitleToPlaceholderAsync;
@@ -28,7 +30,8 @@ namespace Xamarin.Forms.CustomControls.Entries
         {
             InitializeComponent();
 
-            PlaceholderLabel.TranslationX = 10;
+            LabelStartX = 5;
+
             PlaceholderLabel.FontSize = PLACEHOLDER_FONT_SIZE;
 
             // fixing the problem with the height changing when user taps the label
@@ -131,7 +134,7 @@ namespace Xamarin.Forms.CustomControls.Entries
             {
                 await Task.WhenAll(
                     PlaceholderLabel.TranslateTo(
-                        x: 10,
+                        x: LabelStartX,
                         y: 0,
                         length: 100),
                     PlaceholderLabel.SizeTo(
@@ -162,6 +165,19 @@ namespace Xamarin.Forms.CustomControls.Entries
         /// The font size of the title
         /// </summary>
         public int TitleFontSize { get => TITLE_FONT_SIZE; }
-        #endregion
+
+        /// <summary>
+        /// Get or set the start x value of the placeholder label
+        /// </summary>
+        public int LabelStartX
+        {
+            get => _labelStartX;
+            set
+            {
+                _labelStartX = value;
+                PlaceholderLabel.TranslationX = LabelStartX;
+            }
+            #endregion
+        }
     }
 }

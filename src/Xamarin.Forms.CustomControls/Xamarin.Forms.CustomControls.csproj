@@ -79,6 +79,15 @@
     <Compile Include="uap\**\*.uwp.cs" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="shared\entries\views\ConfirmationEntry.xaml.cs">
+      <DependentUpon>ConfirmationEntry.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="shared\entries\views\MaterialEntry.xaml.cs">
+      <DependentUpon>MaterialEntry.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
 
   <!-- The item groups for the other framworks-->
   <!--

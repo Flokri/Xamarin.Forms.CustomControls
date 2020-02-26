@@ -3,6 +3,7 @@ using CustomControlsSample.views;
 using Prism;
 using Prism.Ioc;
 using Prism.Unity;
+using Xamarin.Forms;
 
 namespace CustomControlsSample
 {
@@ -14,11 +15,12 @@ namespace CustomControlsSample
         {
             InitializeComponent();
 
-            NavigationService.NavigateAsync("MainView");
+            NavigationService.NavigateAsync("CustomNavigationPage/MainView");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            containerRegistry.RegisterForNavigation<CustomNavigationPage>();
             containerRegistry.RegisterForNavigation<MainView, MainViewModel>();
             containerRegistry.RegisterForNavigation<EntrySampleView, EntrySampleViewModel>();
         }

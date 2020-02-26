@@ -7,11 +7,11 @@ namespace Xamarin.Forms.CustomControls.Behaviors
     /// <summary>
     /// a behaviour to validata a entered email string
     /// </summary>
-    public class EmailValidationBehavior : Behavior<ConfirmFloatingLabelEntry>
+    public class EmailValidationBehavior : Behavior<ConfirmationEntry>
     {
-        ConfirmFloatingLabelEntry _currentView;
+        ConfirmationEntry _currentView;
 
-        protected override void OnAttachedTo(ConfirmFloatingLabelEntry bindable)
+        protected override void OnAttachedTo(ConfirmationEntry bindable)
         {
             base.OnAttachedTo(bindable);
 
@@ -20,7 +20,7 @@ namespace Xamarin.Forms.CustomControls.Behaviors
             bindable.TextChangedHandlerAsync += (sender, e) => OnEntryTextChanged(sender, e);
         }
 
-        protected override void OnDetachingFrom(ConfirmFloatingLabelEntry bindable)
+        protected override void OnDetachingFrom(ConfirmationEntry bindable)
         {
             base.OnDetachingFrom(bindable);
 
