@@ -78,8 +78,7 @@
   <ItemGroup Condition=" $(TargetFramework.StartsWith('uwp')) ">
     <Compile Include="uap\**\*.uwp.cs" />
   </ItemGroup>
-
-
+  
   <!-- The item groups for the other framworks-->
   <!--
   <ItemGroup Condition=" $(TargetFramework.StartsWith('Xamarin.TVOS')) ">

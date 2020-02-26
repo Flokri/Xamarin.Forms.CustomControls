@@ -14,4 +14,8 @@ In version 0.1.x following controls are included:
 	Buttons:
 		- gradient button
 
+	Layouts:
+		- Keyboard view (for moving elements up in iOS)
+		- non-resize Stack (iOS)
+
 To use the custom controls be sure you have added this NuGet to !every! project in your Xamarin.Forms project.
