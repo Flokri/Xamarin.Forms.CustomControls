@@ -12,6 +12,7 @@ namespace CustomControlsSample.viewmodels
 
         #region commands
         public ICommand NavToEntryPage { get; set; }
+        public ICommand NavToButtonPage { get; set; }
         #endregion
 
         #region constructor
@@ -20,6 +21,7 @@ namespace CustomControlsSample.viewmodels
             _navigationService = navigationService;
 
             NavToEntryPage = new Command(() => _navigationService.NavigateAsync("EntrySampleView"));
+            NavToButtonPage = new Command(() => _navigationService.NavigateAsync("ButtonSampleView"));
         }
         #endregion
     }

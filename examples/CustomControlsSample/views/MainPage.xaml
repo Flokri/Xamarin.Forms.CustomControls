@@ -33,6 +33,13 @@
                 Command="{Binding NavToEntryPage}"
                 HorizontalOptions="CenterAndExpand"
                 Text="Test" />
+
+            <!--  go to the button test page  -->
+            <Label Text="Test the custom buttons" />
+            <Button
+                Command="{Binding NavToButtonPage}"
+                HorizontalOptions="CenterAndExpand"
+                Text="Test" />
         </StackLayout>
     </ScrollView>
 </ContentPage>

@@ -28,6 +28,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="views\ButtonSampleView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="views\EntrySampleView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

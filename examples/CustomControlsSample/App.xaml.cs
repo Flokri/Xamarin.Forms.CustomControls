@@ -22,7 +22,9 @@ namespace CustomControlsSample
         {
             containerRegistry.RegisterForNavigation<CustomNavigationPage>();
             containerRegistry.RegisterForNavigation<MainView, MainViewModel>();
+
             containerRegistry.RegisterForNavigation<EntrySampleView, EntrySampleViewModel>();
+            containerRegistry.RegisterForNavigation<ButtonSampleView, ButtonSampleViewModel>();
         }
 
         protected override void OnStart()
