@@ -77,7 +77,7 @@ namespace Xamarin.Forms.CustomControls.Android.Buttons
         private GradientDrawable DrawGradient(ElementChangedEventArgs<Xamarin.Forms.Button> e)
         {
             var button = e.NewElement as GradientButton;
-            var orientation = button.GradientOrientation == GradientButton.GradientOrientationStates.Horizontal ?
+            var orientation = button.GradientOrientation == Orientation.Horizontal ?
                 GradientDrawable.Orientation.LeftRight : GradientDrawable.Orientation.TopBottom;
 
             _gradient = new GradientDrawable(orientation, new[] {

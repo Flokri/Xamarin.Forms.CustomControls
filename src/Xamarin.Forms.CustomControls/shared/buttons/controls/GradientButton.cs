@@ -9,15 +9,6 @@ namespace Xamarin.Forms.CustomControls.Buttons
     /// </summary>
     public class GradientButton : Button
     {
-        #region enum
-        // specifies the orientation of the gradient color
-        public enum GradientOrientationStates
-        {
-            Vertical,
-            Horizontal
-        }
-        #endregion
-
         #region bindable properties
         public static readonly BindableProperty StartColorProperty =
             BindableProperty.Create(
@@ -36,9 +27,9 @@ namespace Xamarin.Forms.CustomControls.Buttons
         public static readonly BindableProperty GradientOrientationProperty =
             BindableProperty.Create(
                 nameof(GradientOrientation),
-                typeof(GradientOrientationStates),
+                typeof(Orientation),
                 typeof(GradientButton),
-                default(GradientOrientationStates));
+                default(Orientation));
         #endregion
 
         #region properties
@@ -63,9 +54,9 @@ namespace Xamarin.Forms.CustomControls.Buttons
         /// <summary>
         ///  The gradient color orientation
         /// </summary>
-        public GradientOrientationStates GradientOrientation
+        public Orientation GradientOrientation
         {
-            get => (GradientOrientationStates)GetValue(GradientOrientationProperty);
+            get => (Orientation)GetValue(GradientOrientationProperty);
             set => SetValue(GradientOrientationProperty, value);
         }
         #endregion

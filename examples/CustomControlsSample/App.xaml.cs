@@ -25,6 +25,7 @@ namespace CustomControlsSample
 
             containerRegistry.RegisterForNavigation<EntrySampleView, EntrySampleViewModel>();
             containerRegistry.RegisterForNavigation<ButtonSampleView, ButtonSampleViewModel>();
+            containerRegistry.RegisterForNavigation<FrameSampleView, FrameSampleViewModel>();
         }
 
         protected override void OnStart()

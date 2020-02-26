@@ -40,6 +40,13 @@
                 Command="{Binding NavToButtonPage}"
                 HorizontalOptions="CenterAndExpand"
                 Text="Test" />
+
+            <!--  go to the frame test page  -->
+            <Label Text="Test the custom frames" />
+            <Button
+                Command="{Binding NavToFramePage}"
+                HorizontalOptions="CenterAndExpand"
+                Text="Test" />
         </StackLayout>
     </ScrollView>
 </ContentPage>

@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CustomControlsSample.views.FrameSampleView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:cc="clr-namespace:Xamarin.Forms.CustomControls.Frames;assembly=Xamarin.Forms.CustomControls"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <NavigationPage.TitleView>
+        <Label
+            FontSize="Large"
+            Text="Custom Frames"
+            TextColor="White" />
+    </NavigationPage.TitleView>
+
+    <ContentPage.Content>
+        <ScrollView
+            Padding="20"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand">
+            <StackLayout
+                HorizontalOptions="CenterAndExpand"
+                Orientation="Vertical"
+                VerticalOptions="StartAndExpand">
+                <Label Text="Gradient Background Frame" />
+                <cc:CustomizableFrame
+                    CornerRadius="50,0,50,0"
+                    EndColor="MediumPurple"
+                    GradientBackground="True"
+                    HeightRequest="100"
+                    StartColor="CornflowerBlue">
+                    <Label
+                        HorizontalOptions="CenterAndExpand"
+                        Text="Set independent corner radii!"
+                        TextColor="White"
+                        VerticalOptions="CenterAndExpand" />
+                </cc:CustomizableFrame>
+
+                <Label Margin="0,15,0,0" Text="Vertical Gradient Background Frame" />
+                <cc:CustomizableFrame
+                    CornerRadius="50,0,0,50"
+                    EndColor="MediumPurple"
+                    GradientBackground="True"
+                    GradientOrientation="Vertical"
+                    HeightRequest="100"
+                    StartColor="CornflowerBlue">
+                    <Label
+                        HorizontalOptions="CenterAndExpand"
+                        Text="Set independent corner radii!"
+                        TextColor="White"
+                        VerticalOptions="CenterAndExpand" />
+                </cc:CustomizableFrame>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

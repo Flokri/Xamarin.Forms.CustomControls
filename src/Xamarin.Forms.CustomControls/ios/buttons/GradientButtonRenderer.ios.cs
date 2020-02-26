@@ -31,13 +31,13 @@ namespace Xamarin.Forms.CustomControls.iOS.Buttons
                     };
 
                     // horizontal gradient
-                    if (button.GradientOrientation == GradientButton.GradientOrientationStates.Horizontal)
+                    if (button.GradientOrientation == Orientation.Horizontal)
                     {
                         gradientLayer.StartPoint = new CGPoint(0.0, 0.5);
                         gradientLayer.EndPoint = new CGPoint(1.0, 0.5);
                     }
                     // vertical gradient
-                    else if (button.GradientOrientation == GradientButton.GradientOrientationStates.Vertical)
+                    else if (button.GradientOrientation == Orientation.Vertical)
                     {
                         gradientLayer.StartPoint = new CGPoint(0.5, 0.0);
                         gradientLayer.EndPoint = new CGPoint(0.5, 1.0);
