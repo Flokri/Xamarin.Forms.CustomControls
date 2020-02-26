@@ -15,7 +15,7 @@ In version 0.1.x following controls are included:
 		- gradient button
 
 	Layouts:
-		- Keyboard view (for moving elements up in iOS)
+		- keyboard view (for moving elements up in iOS)
 		- non-resize Stack (iOS)
 
 	Frames:

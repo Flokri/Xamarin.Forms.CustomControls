@@ -105,7 +105,7 @@ namespace Xamarin.Forms.CustomControls.Extensions
         /// <summary>
         /// animate the opacity change of a visual element (fade in, fade out)
         /// </summary>
-        /// <param name="self">the parent ofthe animation</param>
+        /// <param name="self">the parent of the animation</param>
         /// <param name="startOpacity">the start opacity of the animation</param>
         /// <param name="endOpacity">the end opacity of the animation</param>
         /// <param name="callback">the callback to set the changed opacity</param>
@@ -122,6 +122,24 @@ namespace Xamarin.Forms.CustomControls.Extensions
             (startOpacity + t * (endOpacity - startOpacity));
 
             return StartAnimation(self, "OpacityTo", transform, callback, length, easing);
+        }
+
+        /// <summary>
+        /// Expand the visual element to a given length (could be the height or width of the element or both)
+        /// </summary>
+        /// <param name="self">the parent of the animation</param>
+        /// <param name="startLength">the start value</param>
+        /// <param name="endLength">the value the length should expand to</param>
+        /// <param name="callback">the callback to set the changed length</param>
+        /// <param name="length">the lenght of the animation</param>
+        /// <param name="easing">easing (optional)</param>
+        /// <returns></returns>
+        public static Task<bool> ExpandTo(this VisualElement self, double startLength, double endLength, Action<double> callback, uint length = 100, Easing easing = null)
+        {
+            double transform(double t) =>
+                (startLength + t * (endLength - startLength));
+
+            return StartAnimation(self, "ExpandTo", transform, callback, length, easing);
         }
     }
 }

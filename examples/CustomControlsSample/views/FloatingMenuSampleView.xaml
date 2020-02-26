@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CustomControlsSample.views.FloatingMenuSampleView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:cc="clr-namespace:Xamarin.Forms.CustomControls.Menu;assembly=Xamarin.Forms.CustomControls"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <NavigationPage.TitleView>
+        <Label
+            FontSize="Large"
+            Text="Floating Menu"
+            TextColor="White" />
+    </NavigationPage.TitleView>
+
+    <ContentPage.Content>
+        <Grid
+            Margin="0"
+            Padding="0"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="EndAndExpand">
+            <cc:FloatingButtonMenu Margin="0,0,0,25" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

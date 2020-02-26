@@ -1,13 +1,28 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
-             x:Class="Xamarin.Forms.CustomControls.shared.menu.views.FloatingButtonMenu">
-  <ContentView.Content>
-      <StackLayout>
-          <Label Text="Hello Xamarin.Forms!" />
-      </StackLayout>
-  </ContentView.Content>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="Xamarin.Forms.CustomControls.Menu.FloatingButtonMenu"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:frames="clr-namespace:Xamarin.Forms.CustomControls.Frames"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <ContentView.Content>
+        <Grid x:Name="grid" Margin="15,0">
+            <frames:CustomizableFrame
+                x:Name="menu"
+                CornerRadius="30"
+                HasShadow="True"
+                HeightRequest="10"
+                HorizontalOptions="EndAndExpand"
+                StartColor="CornflowerBlue"
+                VerticalOptions="FillAndExpand"
+                WidthRequest="10">
+                <frames:CustomizableFrame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Tapped" />
+                </frames:CustomizableFrame.GestureRecognizers>
+                <Label Text="" />
+            </frames:CustomizableFrame>
+        </Grid>
+    </ContentView.Content>
 </ContentView>

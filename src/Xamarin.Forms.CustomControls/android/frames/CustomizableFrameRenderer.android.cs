@@ -1,13 +1,13 @@
 ﻿using Android.Content;
 using Android.Graphics.Drawables;
-using System;
-using System.Collections.Generic;
+
 using System.ComponentModel;
-using System.Text;
 using Xamarin.Forms;
 using Xamarin.Forms.CustomControls.Android.Frames;
 using Xamarin.Forms.CustomControls.Frames;
 using Xamarin.Forms.Platform.Android;
+
+using Native = Android.Content.Res;
 
 using FrameRenderer = Xamarin.Forms.Platform.Android.AppCompat.FrameRenderer;
 
@@ -32,9 +32,9 @@ namespace Xamarin.Forms.CustomControls.Android.Frames
                 var frame = e.NewElement as CustomizableFrame;
 
                 if (!frame.GradientBackground)
-                    Control.SetBackgroundColor(frame.StartColor.ToAndroid());
-                else
-                    Control.SetBackground(DrawGradient(e));
+                    frame.EndColor = frame.StartColor;
+
+                Control.SetBackground(DrawGradient(frame));
 
                 SetCornerRadius();
             }
@@ -56,9 +56,8 @@ namespace Xamarin.Forms.CustomControls.Android.Frames
         /// </summary>
         /// <param name="e"></param>
         /// <returns></returns>
-        private GradientDrawable DrawGradient(ElementChangedEventArgs<Xamarin.Forms.Frame> e)
+        private GradientDrawable DrawGradient(CustomizableFrame frame)
         {
-            var frame = e.NewElement as CustomizableFrame;
             var orientation = frame.GradientOrientation == Orientation.Horizontal ?
                 GradientDrawable.Orientation.LeftRight : GradientDrawable.Orientation.TopBottom;
 
@@ -83,6 +82,8 @@ namespace Xamarin.Forms.CustomControls.Android.Frames
                 if (!cornerRadius.HasValue)
                     return;
 
+                //var density = Native.Resources.System.DisplayMetrics.ScaledDensity;
+
                 var topLeftCorner = Context.ToPixels(cornerRadius.Value.TopLeft);
                 var topRightCorner = Context.ToPixels(cornerRadius.Value.TopRight);
                 var bottomLeftCorner = Context.ToPixels(cornerRadius.Value.BottomLeft);
@@ -102,6 +103,8 @@ namespace Xamarin.Forms.CustomControls.Android.Frames
                         bottomLeftCorner,
                         bottomLeftCorner,
                     });
+
+                Control.SetBackground(backgroundGradient);
             }
         }
         #endregion

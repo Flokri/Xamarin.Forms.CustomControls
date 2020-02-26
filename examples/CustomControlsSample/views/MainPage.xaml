@@ -47,6 +47,13 @@
                 Command="{Binding NavToFramePage}"
                 HorizontalOptions="CenterAndExpand"
                 Text="Test" />
+
+            <!--  go to the floating menu test page  -->
+            <Label Text="Test the custom floting menu" />
+            <Button
+                Command="{Binding NavToFloatingMenuPage}"
+                HorizontalOptions="CenterAndExpand"
+                Text="Test" />
         </StackLayout>
     </ScrollView>
 </ContentPage>

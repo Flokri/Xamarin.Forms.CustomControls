@@ -14,6 +14,7 @@ namespace CustomControlsSample.viewmodels
         public ICommand NavToEntryPage { get; set; }
         public ICommand NavToButtonPage { get; set; }
         public ICommand NavToFramePage { get; set; }
+        public ICommand NavToFloatingMenuPage { get; set; }
         #endregion
 
         #region constructor
@@ -24,6 +25,7 @@ namespace CustomControlsSample.viewmodels
             NavToEntryPage = new Command(() => _navigationService.NavigateAsync("EntrySampleView"));
             NavToButtonPage = new Command(() => _navigationService.NavigateAsync("ButtonSampleView"));
             NavToFramePage = new Command(() => _navigationService.NavigateAsync("FrameSampleView"));
+            NavToFloatingMenuPage = new Command(() => _navigationService.NavigateAsync("FloatingMenuSampleView"));
         }
         #endregion
     }
