@@ -43,7 +43,6 @@
 
                 <Label Margin="0,15,0,0" Text="Animated Border Entry" />
                 <cc:AnimatedBorderEntry
-                    Margin="0,0,0,0"
                     EndColor="MediumPurple"
                     GradientColor="True"
                     HorizontalOptions="StartAndExpand"
