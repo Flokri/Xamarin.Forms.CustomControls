@@ -15,10 +15,6 @@ namespace Xamarin.Forms.CustomControls.iOS.Frames
 {
     public class CustomizableFrameRenderer : FrameRenderer
     {
-        #region constructor
-
-        #endregion
-
         #region overrides
         public override void LayoutSubviews()
         {

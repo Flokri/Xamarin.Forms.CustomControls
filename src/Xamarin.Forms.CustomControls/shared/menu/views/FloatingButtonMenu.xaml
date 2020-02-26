@@ -11,13 +11,13 @@
         <Grid x:Name="grid" Margin="15,0">
             <frames:CustomizableFrame
                 x:Name="menu"
-                CornerRadius="30"
+                CornerRadius="25"
                 HasShadow="True"
-                HeightRequest="10"
+                HeightRequest="50"
                 HorizontalOptions="EndAndExpand"
                 StartColor="CornflowerBlue"
                 VerticalOptions="FillAndExpand"
-                WidthRequest="10">
+                WidthRequest="50">
                 <frames:CustomizableFrame.GestureRecognizers>
                     <TapGestureRecognizer Tapped="Tapped" />
                 </frames:CustomizableFrame.GestureRecognizers>

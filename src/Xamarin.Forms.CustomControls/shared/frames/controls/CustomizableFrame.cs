@@ -23,6 +23,14 @@ namespace Xamarin.Forms.CustomControls.Frames
             BindableProperty.Create(nameof(EndColor), typeof(Color), typeof(CustomizableFrame), default(Color));
         #endregion
 
+        #region constructor
+        public CustomizableFrame()
+        {
+            // this will fix the height and width requests
+            this.Padding = 0;
+        }
+        #endregion
+
         #region properties
         /// <summary>
         /// the corner radius of the 
