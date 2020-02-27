@@ -5,13 +5,22 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:frames="clr-namespace:Xamarin.Forms.CustomControls.Frames"
+    xmlns:local="clr-namespace:Xamarin.Forms.CustomControls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Name="this"
     mc:Ignorable="d">
+
+    <ContentView.Resources>
+        <local:FontResources />
+    </ContentView.Resources>
+
     <ContentView.Content>
         <Grid x:Name="grid" Margin="15,0">
             <frames:CustomizableFrame
                 x:Name="menu"
                 CornerRadius="25"
+                EndColor="MediumPurple"
+                GradientBackground="True"
                 HasShadow="True"
                 HeightRequest="50"
                 HorizontalOptions="EndAndExpand"
@@ -21,7 +30,15 @@
                 <frames:CustomizableFrame.GestureRecognizers>
                     <TapGestureRecognizer Tapped="Tapped" />
                 </frames:CustomizableFrame.GestureRecognizers>
-                <Label Text="" />
+
+                <Label
+                    FontFamily="{StaticResource FontAwesomeSolid}"
+                    FontSize="Medium"
+                    HorizontalOptions="CenterAndExpand"
+                    Text="{x:Static local:FontAwesomeIcon.Bars}"
+                    TextColor="White"
+                    VerticalOptions="CenterAndExpand" />
+
             </frames:CustomizableFrame>
         </Grid>
     </ContentView.Content>

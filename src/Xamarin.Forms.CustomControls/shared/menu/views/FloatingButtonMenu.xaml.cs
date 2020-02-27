@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Collections.Generic;
 using Xamarin.Forms.CustomControls.Extensions;
 using Xamarin.Forms.Xaml;
 
@@ -10,6 +10,16 @@ namespace Xamarin.Forms.CustomControls.Menu
     {
         #region instances
         private bool _isExtended;
+
+        private Item _menu;
+        private List<Item> _selection;
+
+        public List<Item> Items { get; set; }
+
+        public struct Item
+        {
+            public Uri ImageUrl { get; set; }
+        }
         #endregion
 
         public FloatingButtonMenu()
@@ -43,7 +53,7 @@ namespace Xamarin.Forms.CustomControls.Menu
                 length: 150);
 
             // expand the button to the menu
-            menu.ExpandTo(menu.Width, menuLength, (w) => { menu.WidthRequest = w; }, 200, Easing.BounceOut);
+            menu.ExpandTo(menu.Width, menuLength, (w) => { menu.WidthRequest = w; }, 200, Easing.SinOut);
 
             _isExtended = true;
         }
