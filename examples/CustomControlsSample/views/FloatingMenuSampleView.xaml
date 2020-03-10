@@ -3,10 +3,15 @@
     x:Class="CustomControlsSample.views.FloatingMenuSampleView"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:cc="clr-namespace:Xamarin.Forms.CustomControls.Menu;assembly=Xamarin.Forms.CustomControls"
+    xmlns:cc="clr-namespace:Xamarin.Forms.CustomControls;assembly=Xamarin.Forms.CustomControls"
+    xmlns:cm="clr-namespace:Xamarin.Forms.CustomControls.Menu;assembly=Xamarin.Forms.CustomControls"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
+
+    <ContentPage.Resources>
+        <cc:FontResources />
+    </ContentPage.Resources>
 
     <NavigationPage.TitleView>
         <Label
@@ -21,7 +26,12 @@
             Padding="0"
             HorizontalOptions="FillAndExpand"
             VerticalOptions="EndAndExpand">
-            <cc:FloatingButtonMenu Margin="0,0,0,25" />
+            <cm:FloatingButtonMenu
+                Margin="0,0,15,30"
+                FontFamily="{x:StaticResource FontAwesomeSolid}"
+                HeightRequest="60"
+                ItemsSource="{Binding Items}"
+                Text="{x:Static cc:FontAwesomeIcon.Bars}" />
         </Grid>
     </ContentPage.Content>
 </ContentPage>

@@ -3,6 +3,7 @@
     x:Class="Xamarin.Forms.CustomControls.Menu.FloatingButtonMenu"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converters="clr-namespace:Xamarin.Forms.CustomControls.Converters"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:frames="clr-namespace:Xamarin.Forms.CustomControls.Frames"
     xmlns:local="clr-namespace:Xamarin.Forms.CustomControls"
@@ -10,35 +11,65 @@
     x:Name="this"
     mc:Ignorable="d">
 
+
     <ContentView.Resources>
-        <local:FontResources />
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <local:FontResources />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+        <converters:PillViewConverter x:Key="PillConverter" />
+        <converters:InvertBool x:Key="InvertBool" />
+        <converters:BoolToColor x:Key="BoolToColor" />
     </ContentView.Resources>
 
     <ContentView.Content>
-        <Grid x:Name="grid" Margin="15,0">
+        <Grid x:Name="grid">
             <frames:CustomizableFrame
                 x:Name="menu"
-                CornerRadius="25"
-                EndColor="MediumPurple"
-                GradientBackground="True"
-                HasShadow="True"
-                HeightRequest="50"
                 HorizontalOptions="EndAndExpand"
-                StartColor="CornflowerBlue"
-                VerticalOptions="FillAndExpand"
-                WidthRequest="50">
+                StartColor="#614ad3"
+                VerticalOptions="FillAndExpand">
                 <frames:CustomizableFrame.GestureRecognizers>
                     <TapGestureRecognizer Tapped="Tapped" />
                 </frames:CustomizableFrame.GestureRecognizers>
-
-                <Label
-                    FontFamily="{StaticResource FontAwesomeSolid}"
-                    FontSize="Medium"
-                    HorizontalOptions="CenterAndExpand"
-                    Text="{x:Static local:FontAwesomeIcon.Bars}"
-                    TextColor="White"
-                    VerticalOptions="CenterAndExpand" />
-
+                <Grid>
+                    <Button
+                        x:Name="menuButton"
+                        BackgroundColor="Transparent"
+                        Command="{Binding OnExtendedTapped, Source={x:Reference this}}"
+                        HeightRequest="{Binding Height, Source={x:Reference this}}"
+                        HorizontalOptions="FillAndExpand"
+                        IsVisible="{Binding IsExtended, Converter={StaticResource InvertBool}, Source={x:Reference this}}"
+                        TextColor="White"
+                        VerticalOptions="FillAndExpand"
+                        WidthRequest="{Binding Height, Source={x:Reference this}}" />
+                    <CollectionView
+                        x:Name="actionButtonCollection"
+                        Margin="5"
+                        HorizontalOptions="FillAndExpand"
+                        IsVisible="{Binding IsExtended, Source={x:Reference this}}"
+                        VerticalOptions="FillAndExpand">
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout Orientation="Horizontal" />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Button
+                                    BackgroundColor="{Binding IsSelected, Converter={StaticResource BoolToColor}, ConverterParameter={x:Reference this}}"
+                                    Command="{Binding OnActionButtonTapped, Source={x:Reference this}}"
+                                    CommandParameter="{Binding}"
+                                    CornerRadius="{Binding Height, Converter={StaticResource PillConverter}, Source={x:Reference this}}"
+                                    FontFamily="{Binding FontFamily}"
+                                    HorizontalOptions="FillAndExpand"
+                                    Text="{Binding Icon}"
+                                    TextColor="White"
+                                    VerticalOptions="FillAndExpand"
+                                    WidthRequest="{Binding CalculatedWidth, Source={x:Reference this}}" />
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Grid>
             </frames:CustomizableFrame>
         </Grid>
     </ContentView.Content>

@@ -9,7 +9,6 @@ using Xamarin.Forms.Xaml;
 
 namespace CustomControlsSample.views
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class FloatingMenuSampleView : ContentPage
     {
         public FloatingMenuSampleView()

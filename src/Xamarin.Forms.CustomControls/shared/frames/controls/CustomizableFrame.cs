@@ -8,7 +8,7 @@ namespace Xamarin.Forms.CustomControls.Frames
     {
         #region bindables
         public new static readonly BindableProperty CornerRadiusProperty =
-            BindableProperty.Create(nameof(CornerRadius), typeof(CornerRadius), typeof(CustomizableFrame), new CornerRadius(0));
+            BindableProperty.Create(nameof(CornerRadius), typeof(CornerRadius), typeof(CustomizableFrame), default(CornerRadius));
 
         public static readonly BindableProperty GradientBackgroundProperty =
             BindableProperty.Create(nameof(GradientBackground), typeof(bool), typeof(CustomizableFrame), false);
@@ -21,6 +21,9 @@ namespace Xamarin.Forms.CustomControls.Frames
 
         public static readonly BindableProperty EndColorProperty =
             BindableProperty.Create(nameof(EndColor), typeof(Color), typeof(CustomizableFrame), default(Color));
+
+        public static readonly BindableProperty TextProperty =
+    BindableProperty.Create(nameof(Text), typeof(string), typeof(CustomizableFrame), default(string));
         #endregion
 
         #region constructor
@@ -28,6 +31,9 @@ namespace Xamarin.Forms.CustomControls.Frames
         {
             // this will fix the height and width requests
             this.Padding = 0;
+
+            // clear the default corner radius
+            this.CornerRadius = 0;
         }
         #endregion
 
@@ -75,6 +81,14 @@ namespace Xamarin.Forms.CustomControls.Frames
         {
             get => (Color)GetValue(EndColorProperty);
             set => SetValue(EndColorProperty, value);
+        }
+
+
+
+        public string Text
+        {
+            get => (string)GetValue(TextProperty);
+            set => SetValue(TextProperty, value);
         }
         #endregion
     }

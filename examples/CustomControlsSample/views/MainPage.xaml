@@ -49,7 +49,7 @@
                 Text="Test" />
 
             <!--  go to the floating menu test page  -->
-            <Label Text="Test the custom floting menu" />
+            <Label Text="Test the custom floating menu" />
             <Button
                 Command="{Binding NavToFloatingMenuPage}"
                 HorizontalOptions="CenterAndExpand"
