@@ -1,7 +1,7 @@
 ﻿<Project Sdk="MSBuild.Sdk.Extras/2.0.41">
 
   <PropertyGroup>
-    <TargetFrameworks>xamarin.ios10;monoandroid100;netstandard2.0</TargetFrameworks>
+    <TargetFrameworks>xamarin.ios10;MonoAndroid10.0;netstandard2.0</TargetFrameworks>
 
     <!-- other frameworks you can use-->
     <!--xamarin.mac20;xamarin.tvos10;xamarin.watchos10;monoandroid10.0;tizen40;netcoreapp2.1;netcoreapp3.1;net461-->
