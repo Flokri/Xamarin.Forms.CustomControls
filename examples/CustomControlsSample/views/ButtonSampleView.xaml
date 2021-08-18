@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CustomControlsSample.views.ButtonSampleView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:cc="clr-namespace:Xamarin.Forms.CustomControls.Buttons;assembly=Xamarin.Forms.CustomControls"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <NavigationPage.TitleView>
+        <Label
+            FontSize="Large"
+            Text="Custom Buttons"
+            TextColor="White" />
+    </NavigationPage.TitleView>
+
+    <ContentPage.Content>
+        <ScrollView
+            Padding="20"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand">
+            <StackLayout
+                HorizontalOptions="CenterAndExpand"
+                Orientation="Vertical"
+                VerticalOptions="StartAndExpand">
+                <Label Text="Gradient Button" />
+                <cc:GradientButton
+                    CornerRadius="20"
+                    EndColor="MediumPurple"
+                    GradientOrientation="Horizontal"
+                    HorizontalOptions="FillAndExpand"
+                    StartColor="CornflowerBlue"
+                    Text="Tap"
+                    TextColor="White" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

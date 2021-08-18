@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CustomControlsSample.views.EntrySampleView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:behaviors="clr-namespace:Xamarin.Forms.CustomControls.Behaviors;assembly=Xamarin.Forms.CustomControls"
+    xmlns:cc="clr-namespace:Xamarin.Forms.CustomControls.Entries;assembly=Xamarin.Forms.CustomControls"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <NavigationPage.TitleView>
+        <Label
+            FontSize="Large"
+            Text="Custom Entries"
+            TextColor="White" />
+    </NavigationPage.TitleView>
+
+    <ContentPage.Content>
+        <ScrollView
+            Padding="20"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand">
+            <StackLayout
+                HorizontalOptions="CenterAndExpand"
+                Orientation="Vertical"
+                VerticalOptions="StartAndExpand">
+                <Label Text="Borderless Entry" />
+                <cc:BorderlessEntry Placeholder="Placeholder" />
+
+                <Label Margin="0,15,0,0" Text="Floating Label Entry" />
+                <cc:FloatingLabelEntry
+                    Margin="0,10,0,0"
+                    Placeholder="Placeholder"
+                    TitleColor="CornflowerBlue" />
+
+                <Label Margin="0,15,0,0" Text="Material Entry" />
+                <cc:MaterialEntry
+                    ActiveBorderColor="CornflowerBlue"
+                    HorizontalOptions="CenterAndExpand"
+                    Placeholder="Placeholder"
+                    TitleColor="CornflowerBlue" />
+
+                <Label Margin="0,15,0,0" Text="Animated Border Entry" />
+                <cc:AnimatedBorderEntry
+                    EndColor="MediumPurple"
+                    GradientColor="True"
+                    HorizontalOptions="StartAndExpand"
+                    Placeholder="Placeholder"
+                    StartColor="CornflowerBlue"
+                    TitleColor="CornflowerBlue" />
+
+                <Label Text="Confirmation Entry" />
+                <cc:ConfirmationEntry
+                    ButtonBackgroundColor="#5c94cd"
+                    ButtonText="OK"
+                    ConfirmText="Thank's for registration!"
+                    CornerRadius="5"
+                    Keyboard="Email"
+                    Placeholder="Email Address"
+                    PlaceholderColor="#5a97d6"
+                    TextColor="White"
+                    TitleColor="#5a97d6"
+                    ViewBackgroundColor="#044f9e">
+                    <cc:ConfirmationEntry.Behaviors>
+                        <behaviors:EmailValidationBehavior />
+                    </cc:ConfirmationEntry.Behaviors>
+                </cc:ConfirmationEntry>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

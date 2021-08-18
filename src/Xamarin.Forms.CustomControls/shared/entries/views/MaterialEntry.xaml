@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <customentries:FloatingLabelBase
-    x:Class="Xamarin.Forms.CustomControls.Entries.MaterialFloatingLabelEntry"
+    x:Class="Xamarin.Forms.CustomControls.Entries.MaterialEntry"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:customentries="clr-namespace:Xamarin.Forms.CustomControls.Entries"

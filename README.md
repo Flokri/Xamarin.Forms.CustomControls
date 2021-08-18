@@ -15,13 +15,16 @@ Currently available controls are:
 ## How to use?
 The project is available on nuget.org (https://www.nuget.org/packages/Xamarin.Forms.CustomControls) or you just simly clone the repo and use reference to the project inside the src folder.
 
-To use a custom control inside your xaml code you just need to add a reference to the CustomControl package/project. 
+To use a custom control inside your xaml code you just need to add a reference to the correct CustomControl package/project.
+The namespace is seperated into the different control types.
+
+For example, you want to use a custom entry just add this to your xaml:
 
 ```
 <ContentPage 
   xmlns="http://xamarin.com/schemas/2014/forms" 
   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"  
-  xmlns:cc="clr-namespace:Xamarin.Forms.CustomControls;assembly=Xamarin.Forms.CustomControls">
+  xmlns:cc="clr-namespace:Xamarin.Forms.CustomControls.Entries;assembly=Xamarin.Forms.CustomControls">
    ...
 </ContentPage>
 ```
@@ -30,11 +33,12 @@ Next, simply take a custom control and customize it to your liking!
 
 ```
 <cc:AnimatedBorderEntry
-    EndColor="Purple"
+    EndColor="MediumPurple"
     GradientColor="True"
-    Placeholder="Animated"
-    StartColor="Violet"
-    TitleColor="Gray" />
+    HorizontalOptions="StartAndExpand"
+    Placeholder="Placeholder"
+    StartColor="CornflowerBlue"
+    TitleColor="CornflowerBlue" 
 ```
 
 ## Entries
@@ -70,7 +74,7 @@ The material entry has the following bindable properties (additional to the defa
 | `ActiveBorderColor` | The active color of the bottom border. | Will be applied when the entry is focused or the text is not empty. |
 
 
-### Animation Border Entry
+### Animated Border Entry
 The animation border entry will draw an border, as progress animation, around the entry when the entry is be focused or the text is not empty. Be sure to use some extra margin around the entry when using it.
 
 The animation entry has the following bindable properties (additional to the default properties):
@@ -113,7 +117,13 @@ To use it just add the behavior to the entry:
     TitleColor="#5a97d6"
     ViewBackgroundColor="#044f9e">
     <cc:ConfirmFloatingLabelEntry.Behaviors>
-        <cc:EmailValidationBehavior />
+        <behaviors:EmailValidationBehavior />
     </cc:ConfirmFloatingLabelEntry.Behaviors>
 </cc:ConfirmationEntry>
+```
+
+Note you have to add a reference to the behavior if you want the build in email behavior. You could also use your own behaviors!
+
+```
+xmlns:behaviors="clr-namespace:Xamarin.Forms.CustomControls.Behaviors;assembly=Xamarin.Forms.CustomControls"
 ```

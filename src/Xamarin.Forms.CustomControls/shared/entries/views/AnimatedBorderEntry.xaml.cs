@@ -29,6 +29,8 @@ namespace Xamarin.Forms.CustomControls.Entries
         {
             InitializeComponent();
 
+            borderlessEntry.LabelStartX = -25;
+
             borderlessEntry.BeforeTitleToPlaceholderAsync += async (sender, e) => await TitleToPlaceholderAsync();
             borderlessEntry.AfterPlaceholderToTitleAsync += async (sender, e) => await PlaceholderToTitleAsync();
 

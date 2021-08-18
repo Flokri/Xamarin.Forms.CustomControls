@@ -59,7 +59,7 @@
 
     <None Include="readme.txt" pack="true" PackagePath="." />
     <PackageReference Include="SkiaSharp.Views.Forms" Version="1.68.2-preview.29" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.4.0-pre2" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.5.0-pre1" />
     <PackageReference Include="Xamarin.Forms" Version="4.4.0.991640" />
   </ItemGroup>
 
@@ -78,8 +78,7 @@
   <ItemGroup Condition=" $(TargetFramework.StartsWith('uwp')) ">
     <Compile Include="uap\**\*.uwp.cs" />
   </ItemGroup>
-
-
+  
   <!-- The item groups for the other framworks-->
   <!--
   <ItemGroup Condition=" $(TargetFramework.StartsWith('Xamarin.TVOS')) ">

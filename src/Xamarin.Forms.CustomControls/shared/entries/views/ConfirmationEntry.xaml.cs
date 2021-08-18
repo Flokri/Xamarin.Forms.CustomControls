@@ -6,27 +6,27 @@ using Xamarin.Forms.CustomControls.Services;
 
 namespace Xamarin.Forms.CustomControls.Entries
 {
-    public partial class ConfirmFloatingLabelEntry : FloatingLabelBase
+    public partial class ConfirmationEntry : FloatingLabelBase
     {
         #region instances
         public AsyncEvent<EventArgs> TextChangedHandlerAsync;
         #endregion
 
         #region bindable properties
-        public readonly BindableProperty ButtonTextProperty = BindableProperty.Create(nameof(ButtonText), typeof(string), typeof(MaterialFloatingLabelEntry), "");
-        public readonly BindableProperty ConfirmTextProperty = BindableProperty.Create(nameof(ConfirmText), typeof(string), typeof(MaterialFloatingLabelEntry), "");
-        public readonly BindableProperty CornerRadiusProperty = BindableProperty.Create(nameof(CornerRadius), typeof(int), typeof(MaterialFloatingLabelEntry), 0);
-        public readonly BindableProperty ViewBackgroundColorProperty = BindableProperty.Create(nameof(ViewBackgroundColor), typeof(Color), typeof(MaterialFloatingLabelEntry), Color.Gray);
-        public readonly BindableProperty ButtonBackgroundColorProperty = BindableProperty.Create(nameof(ButtonBackgroundColor), typeof(Color), typeof(MaterialFloatingLabelEntry), Color.LightGray);
-        public readonly BindableProperty IsValidProperty = BindableProperty.Create(nameof(IsValid), typeof(bool), typeof(ConfirmFloatingLabelEntry), false, propertyChanged: (bindable, oldVal, newVal) =>
+        public readonly BindableProperty ButtonTextProperty = BindableProperty.Create(nameof(ButtonText), typeof(string), typeof(ConfirmationEntry), "");
+        public readonly BindableProperty ConfirmTextProperty = BindableProperty.Create(nameof(ConfirmText), typeof(string), typeof(ConfirmationEntry), "");
+        public readonly BindableProperty CornerRadiusProperty = BindableProperty.Create(nameof(CornerRadius), typeof(int), typeof(ConfirmationEntry), 0);
+        public readonly BindableProperty ViewBackgroundColorProperty = BindableProperty.Create(nameof(ViewBackgroundColor), typeof(Color), typeof(ConfirmationEntry), Color.Gray);
+        public readonly BindableProperty ButtonBackgroundColorProperty = BindableProperty.Create(nameof(ButtonBackgroundColor), typeof(Color), typeof(ConfirmationEntry), Color.LightGray);
+        public readonly BindableProperty IsValidProperty = BindableProperty.Create(nameof(IsValid), typeof(bool), typeof(ConfirmationEntry), false, propertyChanged: (bindable, oldVal, newVal) =>
         {
-            var confirmEntry = (ConfirmFloatingLabelEntry)bindable;
+            var confirmEntry = (ConfirmationEntry)bindable;
             confirmEntry.UpdateValidation();
         });
         #endregion
 
         #region constructor
-        public ConfirmFloatingLabelEntry() : base()
+        public ConfirmationEntry() : base()
         {
             InitializeComponent();
 
