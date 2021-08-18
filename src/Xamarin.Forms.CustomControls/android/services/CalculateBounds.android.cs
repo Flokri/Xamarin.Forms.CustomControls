@@ -1,7 +1,7 @@
 ﻿using Android.Content.Res;
-using Android.Graphics;
 using Android.Widget;
 using Native = Android.App;
+using Graphics = Android.Graphics;
 
 namespace Xamarin.Forms.CustomControls.Services
 {
@@ -15,9 +15,9 @@ namespace Xamarin.Forms.CustomControls.Services
         /// <returns>the width of the measured string</returns>
         public static double TextWidthNative(string text, float fontSize)
         {
-            Rect bounds = new Rect();
+            Graphics.Rect bounds = new Graphics.Rect();
             TextView textView = new TextView(Native.Application.Context) { TextSize = fontSize };
-            textView.Paint.GetTextBounds(text, 0, text.Length, bounds);
+            textView.Paint.GetTextBounds(text.ToCharArray(), 0, text.Length, bounds);
             var length = bounds.Width();
             return length / Resources.System.DisplayMetrics.ScaledDensity;
         }
@@ -30,9 +30,9 @@ namespace Xamarin.Forms.CustomControls.Services
         /// <returns>the height of the measured string</returns>
         public static double TextHeightNative(string text, float fontSize)
         {
-            Rect bounds = new Rect();
+            Graphics.Rect bounds = new Graphics.Rect();
             TextView textView = new TextView(Native.Application.Context) { TextSize = fontSize };
-            textView.Paint.GetTextBounds(text, 0, text.Length, bounds);
+            textView.Paint.GetTextBounds(text.ToCharArray(), 0, text.Length, bounds);
             var height = bounds.Height();
             return height / Resources.System.DisplayMetrics.ScaledDensity;
         }
