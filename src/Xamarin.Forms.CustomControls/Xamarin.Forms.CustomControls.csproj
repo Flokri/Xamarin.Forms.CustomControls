@@ -55,12 +55,16 @@
 
   <!-- Create the item groups for the different platforms -->
   <ItemGroup>
+    <None Remove="Prism.Unity.Forms" />
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="shared\**\*.cs" />
 
     <None Include="readme.txt" pack="true" PackagePath="." />
     <PackageReference Include="SkiaSharp.Views.Forms" Version="2.80.3" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2083" />
+    <PackageReference Include="Prism.Unity.Forms" Version="8.1.97" />
   </ItemGroup>
 
   <ItemGroup Condition=" $(TargetFramework.StartsWith('netstandard')) ">
@@ -109,4 +113,9 @@
     <PackageReference Include="Tizen.NET" Version="4.0.0" />
   </ItemGroup>
   -->
+  <ItemGroup>
+    <Compile Update="shared\buttons\controls\BuzzerButton.cs">
+      <SubType></SubType>
+    </Compile>
+  </ItemGroup>
 </Project>
