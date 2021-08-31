@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Xamarin.Forms.CustomControls.Buttons
+﻿namespace Xamarin.Forms.CustomControls.Buttons
 {
     /// <summary>
     /// A button with a gradient background

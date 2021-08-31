@@ -33,6 +33,12 @@
                     StartColor="CornflowerBlue"
                     Text="Tap"
                     TextColor="White" />
+                <cc:BuzzerButton TextColor="White"
+                                 FontSize="15"
+                                 ButtonText="Tap"
+                                 ButtonColor="OrangeRed"
+                                 HeightRequest="150"
+                                 WidthRequest="150"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

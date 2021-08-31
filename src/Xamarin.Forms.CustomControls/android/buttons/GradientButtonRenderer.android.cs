@@ -38,9 +38,9 @@ namespace Xamarin.Forms.CustomControls.Android.Buttons
                     Control.StateListAnimator = new Native.Animation.StateListAnimator();
                     Control.SetBackground(DrawGradient(e));
                 }
-                catch (Exception ex)
+                catch
                 {
-                    // handle exception
+                    // ignored
                 }
             }
         }
