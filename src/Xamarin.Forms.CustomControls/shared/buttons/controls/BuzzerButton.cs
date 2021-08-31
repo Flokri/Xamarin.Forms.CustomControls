@@ -4,7 +4,7 @@ using SkiaSharp.Views.Forms;
 using Xamarin.Forms;
 using Xamarin.Forms.CustomControls.Extensions;
 
-namespace amarin.Forms.CustomControls.Buttons
+namespace Xamarin.Forms.CustomControls.Buttons
 {
     public class BuzzerButton : SKCanvasView
     {
@@ -107,7 +107,7 @@ namespace amarin.Forms.CustomControls.Buttons
             canvas.DrawCircle(middlePoint, borderRadius, _borderPaint);
             canvas.DrawCircle(middlePoint, buttonRadius, buttonPaint);
 
-            var textPaint = new SKPaint {TextSize = textSize, BlendMode = SKBlendMode.SrcOut};
+            var textPaint = new SKPaint { TextSize = textSize, BlendMode = SKBlendMode.SrcOut };
 
             var textBounds = new SKRect();
             textPaint.MeasureText(ButtonText, ref textBounds);
