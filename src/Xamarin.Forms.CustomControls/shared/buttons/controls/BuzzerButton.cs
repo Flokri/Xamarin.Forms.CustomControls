@@ -32,6 +32,15 @@ namespace Xamarin.Forms.CustomControls.Buttons
         public static readonly BindableProperty ButtonCommandProperty = BindableProperty.Create(
             nameof(ButtonCommand), typeof(DelegateCommand), typeof(BuzzerButton), defaultValue: null);
 
+        public static readonly BindableProperty ButtonCommandParamProperty = BindableProperty.Create(
+            nameof(ButtonCommandParam), typeof(object), typeof(BuzzerButton), defaultValue: null);
+
+        public object ButtonCommandParam
+        {
+            get => (object)GetValue(ButtonCommandParamProperty);
+            set => SetValue(ButtonCommandParamProperty, value);
+        }
+
         public DelegateCommand ButtonCommand
         {
             get => (DelegateCommand)GetValue(ButtonCommandProperty);
