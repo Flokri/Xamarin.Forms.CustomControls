@@ -14,6 +14,7 @@
         public static readonly BindableProperty AnimatedProperty = BindableProperty.Create(nameof(Animated), typeof(bool), typeof(FloatingLabelBase), true);
         public static readonly BindableProperty KeyboardProperty = BindableProperty.Create(nameof(Keyboard), typeof(Keyboard), typeof(FloatingLabelBase), Keyboard.Default);
         public static readonly BindableProperty IsPasswordProperty = BindableProperty.Create(nameof(IsPassword), typeof(bool), typeof(FloatingLabelBase), false);
+        public static readonly BindableProperty CursorColorProperty = BindableProperty.Create(nameof(CursorColor), typeof(Color), typeof(FloatingLabelBase), Color.FromRgb(73,110,234));
         #endregion
 
         #region properties
@@ -87,6 +88,15 @@
         {
             get => (Color)GetValue(PlaceholderColorProperty);
             set => SetValue(PlaceholderColorProperty, value);
+        }
+
+        /// <summary>
+        /// The color of the entry cursor
+        /// </summary>
+        public Color CursorColor
+        {
+            get => (Color)GetValue(CursorColorProperty);
+            set => SetValue(CursorColorProperty, value);
         }
         #endregion
     }
