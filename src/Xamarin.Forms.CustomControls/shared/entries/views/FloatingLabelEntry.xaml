@@ -1,4 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
 <customentries:FloatingLabelBase
     x:Class="Xamarin.Forms.CustomControls.Entries.FloatingLabelEntry"
     xmlns="http://xamarin.com/schemas/2014/forms"
@@ -35,8 +36,9 @@
                 Keyboard="{Binding Keyboard, Source={x:Reference this}}"
                 Text="{Binding Text, Source={x:Reference this}}"
                 TextColor="{Binding TextColor, Source={x:Reference this}}"
-                Unfocused="HandleUnfocused" 
-                ios:Entry.CursorColor="{Binding CursorColor, Source={x:Reference this}}"/>
+                Unfocused="HandleUnfocused"
+                ios:Entry.CursorColor="{Binding CursorColor, Source={x:Reference this}}"
+                ReturnType="{Binding ReturnType, Source={x:Reference this}}" />
             <Label
                 x:Name="PlaceholderLabel"
                 Text="{Binding Placeholder, Source={x:Reference this}}"

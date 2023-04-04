@@ -11,12 +11,12 @@ using Xamarin.Forms.CustomControls.iOS.Frames;
 using Xamarin.Forms.Platform.iOS;
 
 [assembly: ExportRenderer(typeof(CustomizableFrame), typeof(CustomizableFrameRenderer))]
+
 namespace Xamarin.Forms.CustomControls.iOS.Frames
 {
     public class CustomizableFrameRenderer : FrameRenderer
     {
         #region constructor
-
         #endregion
 
         #region overrides
@@ -46,41 +46,39 @@ namespace Xamarin.Forms.CustomControls.iOS.Frames
         {
             base.Draw(rect);
 
-            if (Element != null)
+            if (!(Element is CustomizableFrame frame)) return;
+
+            if (!frame.GradientBackground)
             {
-                if (Element is CustomizableFrame)
-                {
-                    var frame = Element as CustomizableFrame;
-
-                    if (!frame.GradientBackground)
-                    {
-                        frame.BackgroundColor = frame.StartColor;
-                        return;
-                    }
-
-                    var gradientLayer = new CAGradientLayer();
-                    gradientLayer.Frame = rect;
-                    gradientLayer.Colors = new CGColor[] {
-                        frame.StartColor.ToCGColor(),
-                        frame.EndColor.ToCGColor()
-                    };
-
-                    // horizontal gradient
-                    if (frame.GradientOrientation == Orientation.Horizontal)
-                    {
-                        gradientLayer.StartPoint = new CGPoint(0.0, 0.5);
-                        gradientLayer.EndPoint = new CGPoint(1.0, 0.5);
-                    }
-                    // vertical gradient
-                    else if (frame.GradientOrientation == Orientation.Vertical)
-                    {
-                        gradientLayer.StartPoint = new CGPoint(0.5, 0.0);
-                        gradientLayer.EndPoint = new CGPoint(0.5, 1.0);
-                    }
-
-                    NativeView.Layer.InsertSublayer(gradientLayer, 0);
-                }
+                frame.BackgroundColor = frame.StartColor;
+                return;
             }
+
+            var gradientLayer = new CAGradientLayer
+            {
+                Frame = rect,
+                Colors = new[]
+                {
+                    frame.StartColor.ToCGColor(),
+                    frame.EndColor.ToCGColor()
+                }
+            };
+
+            // horizontal gradient
+            if (frame.GradientOrientation == Orientation.Horizontal)
+            {
+                gradientLayer.StartPoint = new CGPoint(0.0, 0.5);
+                gradientLayer.EndPoint = new CGPoint(1.0, 0.5);
+            }
+            // vertical gradient
+            else if (frame.GradientOrientation == Orientation.Vertical)
+            {
+                gradientLayer.StartPoint = new CGPoint(0.5, 0.0);
+                gradientLayer.EndPoint = new CGPoint(0.5, 1.0);
+            }
+
+            NativeView.Layer.BackgroundColor = UIColor.Clear.CGColor;
+            NativeView.Layer.InsertSublayer(gradientLayer, 0);
         }
         #endregion
 
@@ -97,8 +95,9 @@ namespace Xamarin.Forms.CustomControls.iOS.Frames
 
             var roundedCorners = RetrieveRoundedCorners(cornerRadius.Value);
 
-            var path = UIBezierPath.FromRoundedRect(Bounds, roundedCorners, new CGSize(roundedCornerRadius, roundedCornerRadius));
-            var mask = new CAShapeLayer { Path = path.CGPath };
+            var path = UIBezierPath.FromRoundedRect(Bounds, roundedCorners,
+                new CGSize(roundedCornerRadius, roundedCornerRadius));
+            var mask = new CAShapeLayer {Path = path.CGPath};
             NativeView.Layer.Mask = mask;
         }
 

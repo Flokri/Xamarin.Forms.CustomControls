@@ -6,15 +6,35 @@
     public partial class FloatingLabelBase : ContentView
     {
         #region bindable properties
-        public static readonly BindableProperty TextProperty = BindableProperty.Create(nameof(Text), typeof(string), typeof(FloatingLabelBase), string.Empty, BindingMode.TwoWay);
-        public static readonly BindableProperty PlaceholderProperty = BindableProperty.Create(nameof(Placeholder), typeof(string), typeof(FloatingLabelBase), string.Empty);
-        public static readonly BindableProperty TextColorProperty = BindableProperty.Create(nameof(TextColor), typeof(Color), typeof(FloatingLabelBase), Color.Gray);
-        public static readonly BindableProperty PlaceholderColorProperty = BindableProperty.Create(nameof(PlaceholderColor), typeof(Color), typeof(FloatingLabelBase), Color.Gray);
-        public static readonly BindableProperty TitleColorProperty = BindableProperty.Create(nameof(TitleColor), typeof(Color), typeof(FloatingLabelBase), Color.Gray);
-        public static readonly BindableProperty AnimatedProperty = BindableProperty.Create(nameof(Animated), typeof(bool), typeof(FloatingLabelBase), true);
-        public static readonly BindableProperty KeyboardProperty = BindableProperty.Create(nameof(Keyboard), typeof(Keyboard), typeof(FloatingLabelBase), Keyboard.Default);
-        public static readonly BindableProperty IsPasswordProperty = BindableProperty.Create(nameof(IsPassword), typeof(bool), typeof(FloatingLabelBase), false);
-        public static readonly BindableProperty CursorColorProperty = BindableProperty.Create(nameof(CursorColor), typeof(Color), typeof(FloatingLabelBase), Color.FromRgb(73,110,234));
+        public static readonly BindableProperty TextProperty = BindableProperty.Create(nameof(Text), typeof(string),
+            typeof(FloatingLabelBase), string.Empty, BindingMode.TwoWay);
+
+        public static readonly BindableProperty PlaceholderProperty =
+            BindableProperty.Create(nameof(Placeholder), typeof(string), typeof(FloatingLabelBase), string.Empty);
+
+        public static readonly BindableProperty TextColorProperty =
+            BindableProperty.Create(nameof(TextColor), typeof(Color), typeof(FloatingLabelBase), Color.Gray);
+
+        public static readonly BindableProperty PlaceholderColorProperty =
+            BindableProperty.Create(nameof(PlaceholderColor), typeof(Color), typeof(FloatingLabelBase), Color.Gray);
+
+        public static readonly BindableProperty TitleColorProperty =
+            BindableProperty.Create(nameof(TitleColor), typeof(Color), typeof(FloatingLabelBase), Color.Gray);
+
+        public static readonly BindableProperty AnimatedProperty =
+            BindableProperty.Create(nameof(Animated), typeof(bool), typeof(FloatingLabelBase), true);
+
+        public static readonly BindableProperty KeyboardProperty = BindableProperty.Create(nameof(Keyboard),
+            typeof(Keyboard), typeof(FloatingLabelBase), Keyboard.Default);
+
+        public static readonly BindableProperty IsPasswordProperty =
+            BindableProperty.Create(nameof(IsPassword), typeof(bool), typeof(FloatingLabelBase), false);
+
+        public static readonly BindableProperty CursorColorProperty = BindableProperty.Create(nameof(CursorColor),
+            typeof(Color), typeof(FloatingLabelBase), Color.FromRgb(73, 110, 234));
+
+        public static readonly BindableProperty ReturnTypeProperty = BindableProperty.Create(nameof(ReturnType),
+            typeof(ReturnType), typeof(FloatingLabelBase), ReturnType.Default);
         #endregion
 
         #region properties
@@ -97,6 +117,15 @@
         {
             get => (Color)GetValue(CursorColorProperty);
             set => SetValue(CursorColorProperty, value);
+        }
+
+        /// <summary>
+        /// The return type flag for the entry keyboard
+        /// </summary>
+        public ReturnType ReturnType
+        {
+            get => (ReturnType)GetValue(ReturnTypeProperty);
+            set => SetValue(ReturnTypeProperty, value);
         }
         #endregion
     }
