@@ -1,6 +1,6 @@
 ﻿using System;
+using System.Runtime.Remoting.Channels;
 using System.Threading.Tasks;
-
 using Xamarin.Forms.CustomControls.Extensions;
 
 namespace Xamarin.Forms.CustomControls.Entries
@@ -26,6 +26,7 @@ namespace Xamarin.Forms.CustomControls.Entries
         public AsyncEvent<EventArgs> TextChangedHandlerAsync;
         #endregion
 
+
         public FloatingLabelEntry()
         {
             InitializeComponent();
@@ -37,8 +38,19 @@ namespace Xamarin.Forms.CustomControls.Entries
             // fixing the problem with the height changing when user taps the label
             this.SizeChanged += (sender, e) => HeightRequest = ((FloatingLabelEntry)sender).Height;
 
+            @this.PropertyChanged += async (sender, args) =>
+            {
+                if (!args.PropertyName.Equals(nameof(AutoStartText))) return;
+                if (!string.IsNullOrEmpty(AutoStartText)) return;
+
+                Text = AutoStartText;
+                await PlaceholderToTitle();
+            };
+
             // invoke the eventhandler when text changes
-            BorderlessEntry.TextChanged += async (sender, e) => await (TextChangedHandlerAsync?.InvokeAsync(sender, e) ?? Task.CompletedTask);
+            BorderlessEntry.TextChanged += async (sender, e) =>
+                await (TextChangedHandlerAsync?.InvokeAsync(sender, e) ?? Task.CompletedTask);
+
 
             this.IsClippedToBounds = false;
         }
@@ -164,7 +176,10 @@ namespace Xamarin.Forms.CustomControls.Entries
         /// <summary>
         /// The font size of the title
         /// </summary>
-        public int TitleFontSize { get => TITLE_FONT_SIZE; }
+        public int TitleFontSize
+        {
+            get => TITLE_FONT_SIZE;
+        }
 
         /// <summary>
         /// Get or set the start x value of the placeholder label

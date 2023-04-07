@@ -35,6 +35,9 @@
 
         public static readonly BindableProperty ReturnTypeProperty = BindableProperty.Create(nameof(ReturnType),
             typeof(ReturnType), typeof(FloatingLabelBase), ReturnType.Default);
+
+        public static readonly BindableProperty AutoStartTextProperty = BindableProperty.Create(nameof(AutoStartText),
+            typeof(string), typeof(FloatingLabelBase), "");
         #endregion
 
         #region properties
@@ -126,6 +129,15 @@
         {
             get => (ReturnType)GetValue(ReturnTypeProperty);
             set => SetValue(ReturnTypeProperty, value);
+        }
+
+        /// <summary>
+        /// The auto start text binding which triggers the translation of the placeholder
+        /// </summary>
+        public string AutoStartText
+        {
+            get => (string)GetValue(AutoStartTextProperty);
+            set => SetValue(AutoStartTextProperty, value);
         }
         #endregion
     }

@@ -37,6 +37,8 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
 
     <PackageTags>xamarin-forms, xamarin-forms-controls, xamarin</PackageTags>
+
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <!-- If config is debug create debug symbols -->
